@@ -3,7 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import '../ItemListContainer/ItemListContainer.css'
 
 export default function ItemListContainer({ data }) {
-    const { name , measure, stock} = data
+    const { name , measure, stock, image} = data
     const [count, setCount] = useState(1)
 
 
