@@ -1,23 +1,9 @@
 import React, {useState, useEffect} from "react"
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import mockProducts from "../../Utils/mockProduct";
 
 const Cards = ({children}) => {
-  const mockProducts = [{
   
-      id: 1,
-      name : 'Fate eximia',
-      measure : '195/55/15',
-      image : 'Pinninfarina_NUEVA.png',
-      stock : '5'
-  },
-  {
-      id:2,
-      name : 'Fate AR-620',
-      measure : '195/55/15',
-      image : 'Eximia_AR-620_NUEVA.png',
-      stock : '5'
-  
-}]
 
 const[products, setProducts] = useState([])
 
