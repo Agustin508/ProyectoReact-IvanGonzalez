@@ -13,24 +13,27 @@ function NavBar() {
     
     <ul>
       
-       <li><Button >
-         <Link to={'/'} className='ButtonNavBar'>Home</Link>
-         </Button></li>
-       <li className='ButtonHover'><Button>
-       <Link to={'/Products'} className='ButtonNavBar'>Products</Link>
-         </Button>
-         <li>
-      <SeccionCategory/>
+      <li><Button >
+        <Link to={'/'} className='ButtonNavBar'>Home</Link>
+        </Button></li>
+      <li className='ButtonHover'><Button>
+        <Link to={'/Products'} className='ButtonNavBar'>Products</Link>
+        </Button>
+      <li>
+        <SeccionCategory/>
       </li>
-        </li>
+      </li>
         
-       <li><Button>
-       <Link to={'/'} className='ButtonNavBar'>Bussines</Link>
+      <li><Button>
+        <Link to={'/'} className='ButtonNavBar'>Bussines</Link>
          </Button></li>
-       <li><Button>
+      <li><Button>
          <Link to={'/Contacto'} className='ButtonNavBar'>Contact</Link>
          </Button></li>
-       <CartWidget/>
+      <li>
+      <Button><Link to={'/CartWidget'}  className='ButtonNavBar'><CartWidget/></Link></Button>
+
+      </li>
     </ul>
     </header>
     

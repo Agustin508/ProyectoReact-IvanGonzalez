@@ -1,5 +1,6 @@
 import { Container } from "@mui/material"
 import Cards from '../components/Cards/Cards'
+import ItemCount from "../components/ItemCount/ItemCount"
 
 const HomePage = () => {
     return(
