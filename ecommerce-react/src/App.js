@@ -7,10 +7,12 @@ import ContactPage from './pages/Contact'
 import ProductsPage from './pages/Products';
 import DetailPage from './pages/Detail';
 import CartWidgetPage from './pages/CartWidgetPage';
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
     <div className="App">
+      <CartProvider>
       <BrowserRouter>
       <NavBar/>
       <Routes>
@@ -23,6 +25,8 @@ function App() {
         
       </Routes>
       </BrowserRouter>
+      </CartProvider>
+
     </div>
   );
 }

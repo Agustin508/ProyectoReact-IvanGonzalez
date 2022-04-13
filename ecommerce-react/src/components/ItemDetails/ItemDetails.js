@@ -1,14 +1,19 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import './ItemDetails.css'
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
+
 
 const ItemDetails = ({data}) => {
 
     const[quantity, setQuantity] = useState(false)
 
+    const {addProviderToCart} = useContext(CartContext)
+
     const onAdd = (count) => {
-        alert(`Agregaste ${data.name},cantidad: ${count}`)
+        addProviderToCart(data, count)
+
         setQuantity(true);
     }
 

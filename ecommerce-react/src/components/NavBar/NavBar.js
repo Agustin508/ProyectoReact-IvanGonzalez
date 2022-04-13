@@ -31,7 +31,7 @@ function NavBar() {
          <Link to={'/Contacto'} className='ButtonNavBar'>Contact</Link>
          </Button></li>
       <li>
-      <Button><Link to={'/CartWidget'}  className='ButtonNavBar'><CartWidget/></Link></Button>
+      <Button><Link to={'/cart'}  className='ButtonNavBar'><CartWidget/></Link></Button>
 
       </li>
     </ul>
