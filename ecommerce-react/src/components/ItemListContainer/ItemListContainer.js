@@ -16,7 +16,7 @@ export default function ItemListContainer({ data }) {
 
   return (
     <div className="cards">
-        <ItemDetails data={data}/>
+        <ItemDetails data={data} cartArray={cartArray}/>
         
         <Button>
         <Link to={`/Detail/${id}`}>Mas Informacion</Link>

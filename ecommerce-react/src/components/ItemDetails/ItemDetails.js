@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 
-const ItemDetails = ({data}) => {
+const ItemDetails = ({data, cartArray}) => {
 
     const[quantity, setQuantity] = useState(false)
 
     const {addProviderToCart} = useContext(CartContext)
 
     const onAdd = (count) => {
-        addProviderToCart(data, count)
-
+        addProviderToCart({...data, cantidad: count})
+        console.log ("productos agregados:" , cartArray)
         setQuantity(true);
     }
 

@@ -3,8 +3,16 @@ import { Link } from 'react-router-dom';
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
 import SeccionCategory from '../SeccionCategory/SeccionCategory';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 
 function NavBar() {
+
+  const {cantidad, cartArray} = useContext(CartContext)
+
+  console.log ("es la cantidad:" , cantidad())
+
   return (
     <header>
     <div>
@@ -29,15 +37,17 @@ function NavBar() {
          </Button></li>
       <li><Button>
          <Link to={'/Contacto'} className='ButtonNavBar'>Contact</Link>
-         </Button></li>
-      <li>
-      <Button><Link to={'/cart'}  className='ButtonNavBar'><CartWidget/></Link></Button>
-
+         </Button>
       </li>
     </ul>
+      <Link to={'/cart'}  className='ButtonNavBar'><CartWidget/></Link>    
+        
+        
+      
+    
     </header>
     
-  );
+  )
 }
 
 export default NavBar;

@@ -6,37 +6,47 @@ const CartProvider = ({children}) => {
     
     const [cartArray, setCartArray] = useState([])
     
-    const addProviderToCart = (product, count) => {
-        console.log(`Agregaste ${product.name},cantidad: ${count}`)
-        const newPro = {
-            item: product,
-            count
-        }
-        setCartArray([...cartArray, newPro])
+    const addProviderToCart = (product) => {
+        let exist = cartArray.find(cartArrays => cartArrays.id === product.id)
+        const { cantidad } = data;
+        data.cantidad = product.cantidad + cantidad;
+        const newCart = [...cartArray];
+        setCartArray(newCart)
+
+        !exist && setCartArray(cartArray => [...cartArray, product])
+   
     }   
     
     const deleteItem = (product) =>{
-        setCartArray(cartArray.filter( cartArray => cartArray.id !== product.id))
+        setCartArray(cartArray.filter((cartArrays) => {
+            return cartArrays.id !== product.id
+        }))
     }
 
-    const clearCart = () => {
-        setCartArray([])
+
+    const totalProductos = () => {
+        const total = cartArray.reduce((acum , product) => acum = acum + (product.price * product.cantidad), 0 )
+        console.log("es un total de",  total)
+        return(
+            total
+        )
+    }
+    
+
+    const cantidad = () =>{
+        cartArray.reduce((acum , product) => acum += product.cantidad , 0)
     }
 
-    const isInCart = (id) =>{
-        return cartArray.some(element => element.id === id)
-    }
-
-    const value = {
+    const data = {
         cartArray,
         addProviderToCart,
-        isInCart,
-        clearCart,
         deleteItem,
+        totalProductos,
+        cantidad
     }
 
     return(
-        <CartContext.Provider value={value}>
+        <CartContext.Provider value={data}>
             {children}
         </CartContext.Provider>
     )
