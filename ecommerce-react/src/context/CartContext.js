@@ -26,7 +26,6 @@ const CartProvider = ({children}) => {
 
     const totalProductos = () => {
         const total = cartArray.reduce((acum , product) => acum = acum + (product.price * product.cantidad), 0 )
-        console.log("es un total de",  total)
         return(
             total
         )

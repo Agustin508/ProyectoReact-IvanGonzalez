@@ -40,8 +40,9 @@ function NavBar() {
          </Button>
       </li>
     </ul>
+    
       <Link to={'/cart'}  className='ButtonNavBar'><CartWidget/></Link>    
-        
+    
         
       
     
