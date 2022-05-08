@@ -19,10 +19,12 @@ header{
     font-size: 50px;
   }
 .ButtonNavBar{
-  float: left;
+  float: left ;
   text-decoration: none;
   font-size: 25px;
-  margin-left: 50px;
   color: black;
+  text-align: center;
+  width: 150px;
 }
+
 

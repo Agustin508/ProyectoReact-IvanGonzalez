@@ -6,3 +6,13 @@
 .container-detail__info{
     background-color: #E5E5E5 ;
 }
+.cart p{
+    font-size: 20px;
+    color: black;
+}
+.cart h3{
+    font-size: 30px;
+}
+.cart{
+    background-color: #C9C9C9;
+}

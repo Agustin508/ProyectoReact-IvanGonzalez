@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import ModalCustom from '../components/Modal/Modal'
 import db from '../firebase'
 import {addDoc, collection} from 'firebase/firestore'
+import './CartWidgetPage.css'
+
 
 const CartWidgetPage = () => {
     
@@ -52,19 +54,20 @@ const CartWidgetPage = () => {
 
     const pushOrder = async (prevOrder) => {
         const orderFirebase = collection(db, 'ordenes')
-        const orderDoc = await addDoc(orderFirebase, order)
-        console.log("orden generada" , orderDoc.id)
+        const orderDoc = await addDoc(orderFirebase, prevOrder)
         setSuccessOrder(orderDoc.id)
     }
+
+    
 
     return(
         <div>
             {cartArray.length === 0 &&
-               <div>
+               <div className="noProducts">
                    <p>No hay productos en el carrito</p>
-                   <li>
+                   <span>
                     <Link to={'/Products'}>Regresar a la tienda</Link>
-                    </li>
+                    </span>
                </div> 
             }
 
@@ -73,10 +76,10 @@ const CartWidgetPage = () => {
                 return(
             <div>
 
-                <div key={id}>
-                    <p>Nombre: {name}</p>
+                <div className="detailCart" key={id}>
+                    <p >Nombre: {name}</p>
                     <p>Price:{price}</p>
-                    <p>cantidad:{cantidad}</p>
+                    <p>Cantidad:{cantidad}</p>
 
                     <p>Measure:{measure}</p>
                     {<Button onClick={() => deleteItem(cartArrays)}>
@@ -92,16 +95,17 @@ const CartWidgetPage = () => {
 
             &&
 
-            <div>
+            <div className="completarCompra">
                 
-                <h5>El total es : {totalProductos()}</h5>
-                <Button onClick={() => setOpenModal(true)}>Completar Compra</Button>
+                <h5>El total es : ${totalProductos()}</h5>
+                <Button onClick={() => setOpenModal(true)}><p>Completar Compra</p></Button>
             </div>
           
             }
+             
+             
              <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
-                {console.log("formdata", formData)}
-                {console.log("order", order)}
+                
 
                 <h2>Form Usuario</h2>
                 {successOrder ? (
@@ -110,16 +114,18 @@ const CartWidgetPage = () => {
                         <p>su numero de order es : {successOrder}</p>
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit}>
-                    <input type="text" name= 'name' placeholder='Nombre' onChange={handleChange} value={formData.name}/>
-                    <input type="number" name='phone' placeholder='Phone' onChange={handleChange}value={formData.phone}/>
-                    <input type="mail" name='email' placeholder='mail' onChange={handleChange}value={formData.email}/>
+                    <form onSubmit={handleSubmit} >
+                    <input required type="text" name= 'name' placeholder='Nombre' onChange={handleChange} value={formData.name}/>
+                    <input required type="number" name='phone' placeholder='Phone' onChange={handleChange}value={formData.phone}/>
+                    <input required type="mail" name='email' placeholder='mail' onChange={handleChange}value={formData.email}/>
 
-                    <Button type="submit">Enviar</Button>
+                    <Button type="submit" >Enviar</Button>
                     </form>
                     )}
                 
                 </ModalCustom>
+
+                {successOrder && <p className="messageCorrect"><Link to={'/Products'}>SU COMPRA SE ENVIO CORRECTAMENTE REGRESAR A LA TIENDA</Link></p>}
         </div>
        
     )

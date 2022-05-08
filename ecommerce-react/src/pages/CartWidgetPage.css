@@ -1,0 +1,42 @@
+.noProducts{
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    background-color: #BBBBBB;
+    width: 300px;
+    font-size: 20px;
+    color: black;
+}
+.noProducts a{
+    text-decoration: none;
+    color: black;
+}
+.detailCart p{
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    margin: 50px;
+}
+.detailCart{
+    padding-top: 50px;
+    display: flex;
+}
+h5{
+    text-align: center;
+    font-size: 30px;
+    background-color: #AA1B46;
+}
+.completarCompra Button p{
+    color: black;
+    text-align: center;
+    font-size: 35px;
+}
+.completarCompra{
+    text-align: center;
+}
+.messageCorrect a{
+    color: #AA1B46;
+}
+.messageCorrect{
+    text-align: center;
+}

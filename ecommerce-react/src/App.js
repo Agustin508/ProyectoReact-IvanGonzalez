@@ -8,6 +8,7 @@ import ProductsPage from './pages/Products';
 import DetailPage from './pages/Detail';
 import CartWidgetPage from './pages/CartWidgetPage';
 import CartProvider from './context/CartContext';
+import BussinesPage from './pages/BusinnesPage';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path='/Products' element={<ProductsPage/>}/>
         <Route path='/Detail/:id' element={<DetailPage/>}/>
         <Route path='/Cart' element={<CartWidgetPage/>}/>
-        
+        <Route path='/BussinesPage' element={<BussinesPage/>}/>
       </Routes>
       </BrowserRouter>
       </CartProvider>

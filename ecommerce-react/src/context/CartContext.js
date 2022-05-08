@@ -33,8 +33,10 @@ const CartProvider = ({children}) => {
     
 
     const cantidad = () =>{
-        cartArray.reduce((acum , product) => acum += product.cantidad , 0)
+        return cartArray.reduce((acum , product) => acum += product.cantidad , 0)
+        
     }
+
 
     const data = {
         cartArray,

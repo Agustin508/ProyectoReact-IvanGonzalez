@@ -13,7 +13,6 @@ const ItemDetails = ({data, cartArray}) => {
 
     const onAdd = (count) => {
         addProviderToCart({...data, cantidad: count})
-        console.log ("productos agregados:" , cartArray)
         setQuantity(true);
     }
 
@@ -23,11 +22,10 @@ const ItemDetails = ({data, cartArray}) => {
         <div>
             <img src={data.image} alt={data.name} />
         </div>
-        <div>
+        <div className='cart'>
             <h3>{data.name}</h3>
             <p>PRECIO:$ {data.price}</p>
             <p>MEDIDAS:{data.measure}</p>
-            <p>DETALLE:{data.description}</p>
             {quantity ? <Link to='/cart'>Cart</Link> : <ItemCount stock ={5} onAdd={onAdd}/>}
         </div>
         </div>
